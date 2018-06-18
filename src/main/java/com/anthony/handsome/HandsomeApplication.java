@@ -1,5 +1,8 @@
 package com.anthony.handsome;
 
+import com.anthony.handsome.common.JobConfiguration;
+import com.anthony.handsome.size.SizeFounder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,20 +12,19 @@ import java.util.Properties;
 @SpringBootApplication
 public class HandsomeApplication {
 
+    @Autowired
+    JobConfiguration jobConfiguration;
+
     public static void main(String[] args) {
 
         SpringApplication.run(HandsomeApplication.class, args);
 
         System.out.println("Start");
 
+        System.out.println(JobConfiguration.getExcludedList());
 
-        Properties pros = System.getProperties();
+        SizeFounder size = new SizeFounder("\\");
 
-        for( String name :pros.stringPropertyNames() )
-        {
-            System.out.println(name + " : "+pros.getProperty(name));
-        }
-
-        pros.propertyNames();
+        size.test();
     }
 }

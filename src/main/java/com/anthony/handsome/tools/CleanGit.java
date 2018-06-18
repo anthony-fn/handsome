@@ -28,7 +28,7 @@ public class CleanGit {
                 for( File tobeDeleted : files )
                 {
                     deleteNecessary(tobeDeleted);
-                    
+
                 }
             }
         }
@@ -36,7 +36,7 @@ public class CleanGit {
 
     public static void main( String [] args )
     {
-        String path = "/Users/AnthonyFan/Mine/Codes/handsome";
+        String path = "/Users/AnthonyFan/Mine/Codes/playground";
 
         File file = new File(path);
 

@@ -3,11 +3,22 @@ package com.anthony.handsome.common;
 import com.anthony.handsome.counters.FileCounters;
 import com.anthony.handsome.counters.FileCountersComparator;
 import com.anthony.handsome.counters.FileCountersContainer;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.*;
 
 public class Tools {
+
+    public static void showProperties()
+    {
+        Properties pros = System.getProperties();
+
+        for( String name :pros.stringPropertyNames() )
+        {
+            System.out.println(name + " : "+pros.getProperty(name));
+        }
+    }
 
     public static String getFilePath(File file) throws Exception {
         /*if( file == null || !file.exists() )

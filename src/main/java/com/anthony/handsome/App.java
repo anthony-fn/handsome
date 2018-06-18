@@ -1,5 +1,6 @@
 package com.anthony.handsome;
 
+import com.anthony.handsome.common.JobConfiguration;
 import com.anthony.handsome.common.Tools;
 import com.anthony.handsome.counters.FileCountersContainer;
 

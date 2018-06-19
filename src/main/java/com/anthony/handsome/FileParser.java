@@ -1,15 +1,27 @@
 package com.anthony.handsome;
 
-import com.anthony.handsome.common.JobConfiguration;
+import com.anthony.handsome.exception.HandsomeError;
+import com.anthony.handsome.exception.HandsomeException;
 import com.anthony.handsome.common.Tools;
 import com.anthony.handsome.counters.FileCountersContainer;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
-public class App {
+public class FileParser {
 
-    private static FileCountersContainer fileContainer = new FileCountersContainer();
-    public static long getFolderLength( File file )
+    private String startPath;
+
+    private Map<String, Integer> layers = new HashMap<String, Integer>();
+
+    private FileCountersContainer fileContainer = new FileCountersContainer();
+    public FileParser( String path )
+    {
+        this.startPath = path;
+    }
+
+    private long getFolderLength( File file )
     {
         File [] subfiles = file.listFiles();
         long result = 0;
@@ -27,25 +39,19 @@ public class App {
         }
         return result;
     }
-    public static void main( String [] args )
-    {
-        String path = "/Users/AnthonyFan/Works/Documents";
 
-        File file = new File(path);
+    public void parse() throws HandsomeException {
+        File file = new File(startPath);
 
         if( !file.exists() )
         {
-            System.out.println("Invalid input path: "+path);
-            System.exit(-1);
+            throw new HandsomeException(HandsomeError.INVALID_PATH, startPath);
         }
 
         File [] files = file.listFiles();
 
-        int i = 0;
         for( File subfile : files )
         {
-            i++;
-            //System.out.println( " Current: "+ subfile.getPath()+" "+i+" out of "+files.length);
             if( subfile.isDirectory() )
             {
                 System.out.println( subfile.getPath() + "\t"+ getFolderLength(subfile)/(1024*1024));

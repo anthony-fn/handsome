@@ -20,6 +20,11 @@ public class Tools {
         }
     }
 
+    public static void showConfiguraiton()
+    {
+        System.out.println(JobConfiguration.getExcludedList());
+    }
+
     public static String getFilePath(File file) throws Exception {
         /*if( file == null || !file.exists() )
         {

@@ -32,11 +32,11 @@ public class ConfigInfo {
         this.layer = layer;
     }
 
-    @PostConstruct
+    /*@PostConstruct
     public void post()
     {
         System.out.println(this.toString());
-    }
+    }*/
 
     @Override
     public String toString()

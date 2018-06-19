@@ -34,10 +34,6 @@ public class FileCountersContainer {
 
     public void addFile( File file )
     {
-        /*if( !file.exists() )
-        {
-            return;
-        }*/
 
         if( counters.containsKey(file.getName()) )
         {

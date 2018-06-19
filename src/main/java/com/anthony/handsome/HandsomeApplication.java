@@ -21,10 +21,11 @@ public class HandsomeApplication {
 
         System.out.println("Start");
 
-        System.out.println(JobConfiguration.getExcludedList());
+        //System.out.println(JobConfiguration.getExcludedList());
 
-        SizeFounder size = new SizeFounder("\\");
+        SizeFounder size = new SizeFounder("/Users/AnthonyFan/Mine/Codes/handsome/");
 
-        size.test();
+        size.start();
+
     }
 }
